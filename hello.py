@@ -1,14 +1,18 @@
 # hello.py
+from faker import Faker
 
-def hello():
-  if (3 % 2 == 0):
-    print("Sono in if")
-  else:
-    print("Sono in else")
+# Inizializzazione dell'oggetto Faker
+faker = Faker('it_IT')
 
-  for i in range(10):
-    print(i)
+def genera_dati():
+    # Generazione di dati casuali
+    nome = faker.first_name()
+    cognome = faker.last_name()
+    telefono = faker.phone_number()
+    indirizzo = faker.address().replace("\n", ", ")
 
-  print("Stampa finita")
+    # Restituzione dei dati generati
+    return nome, cognome, telefono, indirizzo
 
-hello();
+# Stampa dei dati generati
+print(genera_dati())
