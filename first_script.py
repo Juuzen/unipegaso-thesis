@@ -39,6 +39,7 @@ def save_fake_data_to_csv(filename, people_data):
         # Scrittura dei dati nel file CSV
         writer.writerows(people_data)
 
+### Main script ###
 
 # Generazione di 10 righe di dati casuali di persone
 people_data = generate_people_fake_data(10)
