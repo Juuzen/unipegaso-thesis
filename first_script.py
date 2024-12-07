@@ -1,10 +1,13 @@
 from faker import Faker
+from consts import CSV_FILENAME
 import csv
 
 # Inizializzazione dell'oggetto Faker
 faker = Faker('it_IT')
 
-# Funzione per generare dati casuali di una persona
+### Funzioni ###
+
+# Genera dati casuali di una persona
 def generate_person_fake_data():
     name = faker.first_name()
     surname = faker.last_name()
@@ -14,12 +17,14 @@ def generate_person_fake_data():
     # Restituzione dei dati generati
     return [name, surname, phone_number, address]
 
-# Funzione per generare multipli dati casuali di persone, con un numero di righe ricevuto come argomento
+# Genera dati casuali di persone multiple, con un numero di righe ricevuto come argomento
 def generate_people_fake_data(num_rows=10):
     people_data = []
 
-    for _ in range(num_rows):
-        people_data.append(generate_person_fake_data())
+    # Check per evitare dati incorretti
+    if num_rows > 0:
+        for _ in range(num_rows):
+            people_data.append(generate_person_fake_data())
     
     # Restituzione dei dati generati
     return people_data
@@ -39,13 +44,16 @@ def save_fake_data_to_csv(filename, people_data):
         # Scrittura dei dati nel file CSV
         writer.writerows(people_data)
 
+def main():
+    # Generazione di 10 righe di dati casuali di persone
+    people_data = generate_people_fake_data(10)
+
+    # Salvataggio dei dati in un file CSV
+    save_fake_data_to_csv(CSV_FILENAME, people_data)
+
+    # Messaggio di conferma
+    print(f"I dati sono stati scritti nel file {CSV_FILENAME}.")
+    
 ### Main script ###
 
-# Generazione di 10 righe di dati casuali di persone
-people_data = generate_people_fake_data(10)
-
-# Salvataggio dei dati in un file CSV
-save_fake_data_to_csv('people_data.csv', people_data)
-
-# Messaggio di conferma
-print("I dati sono stati scritti nel file 'people_data.csv'.")
+main();
