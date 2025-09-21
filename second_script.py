@@ -107,13 +107,13 @@ def main():
             with sqlite3.connect(DB_FILENAME) as conn:
                 cursor = conn.cursor()
 
-                # Se non esiste, crea una nuova tabella 'users'
+                # Se non esiste, crea una nuova tabella 'people'
                 cursor.execute(CREATE_TABLE)
 
-                # Elimina tutte le (eventuali) righe presenti nella tabella 'users'
+                # Elimina tutte le (eventuali) righe presenti nella tabella 'people'
                 cursor.execute(DELETE_DATA)
                 
-                # Apertura del file CSV e inserimento dei dati nella tabella 'users'
+                # Apertura del file CSV e inserimento dei dati nella tabella 'people'
                 with open(CSV_FILENAME, newline='') as csvfile:
                     reader = csv.reader(csvfile)
                     next(reader)
