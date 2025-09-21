@@ -32,9 +32,6 @@ Clonare o scaricare questo progetto è condizione sufficiente per poter eseguire
 
 Per poter eseguire correttamente gli scripts, aprire il terminale del proprio OS di riferimento, e spostarsi all'interno della cartella clonata di questo progetto, contenente tutti i file necessari.
 
-Dopodiché, eseguire il comando:
-> python ./<NOME_SCRIPT>.py
-
 All'interno della cartella è possibile trovare:
 - `README.md` (ciò che si sta visualizzando in questo momento)
 - `consts.py`
@@ -43,9 +40,21 @@ All'interno della cartella è possibile trovare:
 
 Il file `consts.py` contiene semplicemente dati e variabili condivise dagli altri file, anche eseguendo tale script non si otterrà nessun risultato, per cui verrà ignorato da questo momento in avanti.
 
-Il primo file da eseguire è `first_script.py`. Questo script creerà un file denominato `people_data.csv` contenente i dati degli utenti.
+Il primo file da eseguire è `first_script.py`. 
 
-Il secondo file da eseguire è `second_script.py`. Questo script cercherà nella stessa cartella un file `people_data.csv` e, se lo troverà, proverà ad inserire tali dati in un database SQLite. In questo secondo script vengono prese diverse misure per verificare la validità dei dati recuperati dal file `people_data.csv` (come, ad esempio, fermare l'esecuzione del codice se il file non esiste, oppure è vuoto, o se i dati non sono formattati correttamente). 
+Eseguire quindi il comando:
+> python ./first_script.py
+
+Questo script creerà un file denominato `people_data.csv` contenente i dati degli utenti.
+
+
+
+Il secondo file da eseguire è `second_script.py`. 
+
+Eseguire quindi il comando:
+> python ./second_script.py
+
+Questo script cercherà nella stessa cartella un file `people_data.csv` e, se lo troverà, proverà ad inserire tali dati in un database SQLite. In questo secondo script vengono prese diverse misure per verificare la validità dei dati recuperati dal file `people_data.csv` (come, ad esempio, fermare l'esecuzione del codice se il file non esiste, oppure è vuoto, o se i dati non sono formattati correttamente). 
 
 Tali misure sono prese in misura cautelativa, per dimostrare l'importanza di assicurarsi che i dati in ingresso siano sempre puliti, poiché dati errati possono portare alla corruzione del database e a problemi successivi ben più gravi. Le misure di sicurezza aggiunte, essendo questo comunque un aspetto secondario a ciò che richiede la traccia, non sono esaustivi, ma coprono solo le casistiche più comuni.
 
